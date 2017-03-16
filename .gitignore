@@ -16,7 +16,7 @@
 .c9/
 *.launch
 .settings/
-workspace.xml
+/.idea/workspace.xml
 
 # misc
 /.sass-cache
