@@ -16,6 +16,10 @@ app.use(cookieParser());
 
 app.listen(process.env.PORT || 4201);
 
+app.get("/login", function (req, res) {
+   res.send("Hello World!");
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
