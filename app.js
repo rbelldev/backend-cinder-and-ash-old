@@ -3,6 +3,7 @@ var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var nodemailer = require('nodemailer');
 
 // var index = require('./routes/index');
 // app.use('/', index);
@@ -17,7 +18,31 @@ app.use(cookieParser());
 app.listen(process.env.PORT || 4201);
 
 app.get("/login", function (req, res) {
-   res.send("Hello World!");
+    var transporter = nodemailer.createTransport({
+        service: 'Gmail',
+        auth: {
+            user: 'cinder.and.ash.guild@gmail.com', // Your email id
+            pass: 'C1nd3r@nd@$h3!1482' // Your password
+        }
+    });
+
+    var mailOptions = {
+        from: 'cinder.and.ash.guild@gmail.com', // sender address
+        to: 'cinder.and.ash.guild@gmail.com', // list of receivers
+        subject: 'Test From Knute', // Subject line
+        text: "Test Message From Knute sent by the web application!" //, // plaintext body
+        // html: '<b>Hello world ✔</b>' // You can choose to send an HTML body instead
+    };
+
+    transporter.sendMail(mailOptions, function(error, info){
+        if(error){
+            console.log(error);
+            res.json({yo: 'error'});
+        }else{
+            console.log('Message sent: ' + info.response);
+            res.json({yo: info.response});
+        };
+    });
 });
 
 // catch 404 and forward to error handler
