@@ -34,7 +34,7 @@ app.post("/application", function (req, res) {
         // to: 'cinder.and.ash.guild@gmail.com', // list of receivers
         to:'rbelldev@gmail.com',
         subject: 'Test From Knute', // Subject line
-        text: req.body //, // plaintext body
+        text: JSON.stringify(req.body) //, // plaintext body
         // html: '<b>Hello world ✔</b>' // You can choose to send an HTML body instead
     };
 
