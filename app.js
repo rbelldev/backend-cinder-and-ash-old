@@ -31,8 +31,8 @@ app.post("/application", function (req, res) {
 
     var mailOptions = {
         from: 'cinder.and.ash.guild@gmail.com', // sender address
-        // to: 'cinder.and.ash.guild@gmail.com', // list of receivers
-        to:'rbelldev@gmail.com',
+        to: 'cinder.and.ash.guild@gmail.com', // list of receivers
+        // to:'rbelldev@gmail.com',
         subject: 'Test From Knute', // Subject line
         text: JSON.stringify(req.body) //, // plaintext body
         // html: '<b>Hello world ✔</b>' // You can choose to send an HTML body instead
