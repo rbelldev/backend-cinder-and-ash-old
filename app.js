@@ -38,17 +38,17 @@ app.post("/application", function (req, res) {
         // html: '<b>Hello world ✔</b>' // You can choose to send an HTML body instead
     };
 
-    res.send(200);
+    // res.send(200);
 
-    // transporter.sendMail(mailOptions, function(error, info){
-    //     if(error){
-    //         console.log(error);
-    //         res.json({yo: 'error'});
-    //     }else{
-    //         console.log('Message sent: ' + info.response);
-    //         res.json({yo: info.response});
-    //     };
-    // });
+    transporter.sendMail(mailOptions, function(error, info){
+        if(error){
+            console.log(error);
+            res.send(500);
+        }else{
+            console.log('Message sent: ' + info.response);
+            res.send(200);
+        };
+    });
 });
 
 // // catch 404 and forward to error handler
