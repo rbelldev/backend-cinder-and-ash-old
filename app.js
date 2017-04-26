@@ -17,7 +17,7 @@ app.use(cookieParser());
 
 app.listen(process.env.PORT || 4201);
 
-app.post("/guild-application", function (req, res) {
+app.post("/application", function (req, res) {
 
     console.log("BODY: ", req.body);
 
