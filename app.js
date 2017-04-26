@@ -17,7 +17,10 @@ app.use(cookieParser());
 
 app.listen(process.env.PORT || 4201);
 
-app.get("/login", function (req, res) {
+app.post("/guild-application", function (req, res) {
+
+    console.log("BODY: ", req.body);
+
     var transporter = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
@@ -28,21 +31,22 @@ app.get("/login", function (req, res) {
 
     var mailOptions = {
         from: 'cinder.and.ash.guild@gmail.com', // sender address
-        to: 'cinder.and.ash.guild@gmail.com', // list of receivers
+        // to: 'cinder.and.ash.guild@gmail.com', // list of receivers
+        to:'rbelldev@gmail.com',
         subject: 'Test From Knute', // Subject line
         text: "Test Message From Knute sent by the web application!" //, // plaintext body
         // html: '<b>Hello world ✔</b>' // You can choose to send an HTML body instead
     };
 
-    transporter.sendMail(mailOptions, function(error, info){
-        if(error){
-            console.log(error);
-            res.json({yo: 'error'});
-        }else{
-            console.log('Message sent: ' + info.response);
-            res.json({yo: info.response});
-        };
-    });
+    // transporter.sendMail(mailOptions, function(error, info){
+    //     if(error){
+    //         console.log(error);
+    //         res.json({yo: 'error'});
+    //     }else{
+    //         console.log('Message sent: ' + info.response);
+    //         res.json({yo: info.response});
+    //     };
+    // });
 });
 
 // catch 404 and forward to error handler
