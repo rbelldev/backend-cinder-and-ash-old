@@ -25,7 +25,7 @@ app.post("/application", function (req, res) {
         service: 'Gmail',
         auth: {
             user: 'cinder.and.ash.guild@gmail.com', // Your email id
-            pass: 'C1nd3rT0$' // Your password
+            pass: 'B@t713F0rC1nd3r!' // Your password
         }
     });
 
